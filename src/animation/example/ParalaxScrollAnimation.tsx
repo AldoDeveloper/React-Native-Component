@@ -1,8 +1,8 @@
-import { Animated, Dimensions, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Animated, Dimensions, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
 const { height } = Dimensions.get("screen");
-const imagePath = require("../../assets/phone_1.png");
+const imagePath  = require("../../assets/phone_1.png");
 
 export default function ParalaxScrollAnimation() {
 
@@ -15,8 +15,8 @@ export default function ParalaxScrollAnimation() {
                     transform: [
                         {
                             translateY: scroolY.interpolate({
-                                inputRange: [0, height],
-                                outputRange: [0, -200],
+                                inputRange: [-height, 0, height],
+                                outputRange: [height / 2, 0, height * 0.75],
                                 extrapolate: "clamp"
                             })
                         }
@@ -25,13 +25,13 @@ export default function ParalaxScrollAnimation() {
                 source={imagePath} />
 
             <SafeAreaView>
-                <ScrollView
+                <Animated.ScrollView
                     contentContainerStyle={styles.scroolViewContent}
-                    onScroll={(props) => {
+                    onScroll={
                         Animated.event([
                             { nativeEvent: { contentOffset: { y: scroolY } } }],
                             { useNativeDriver: true })
-                    }}
+                    }
                     scrollEventThrottle={16}>
                     <View style={styles.textContainer}>
                         <Text style={styles.text}>
@@ -68,7 +68,7 @@ export default function ParalaxScrollAnimation() {
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, dignissimos.
                         </Text>
                     </View>
-                </ScrollView>
+                </Animated.ScrollView>
             </SafeAreaView>
         </View>
     )

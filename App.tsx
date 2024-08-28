@@ -14,6 +14,8 @@ import AnimatedSquence from './src/animation/AnimatedSquence'
 import AnimatedDecay from './src/animation/AnimatedDecay'
 import TodoListAnimation from './src/animation/example/TodoListAnimation'
 import ParalaxScrollAnimation from './src/animation/example/ParalaxScrollAnimation'
+import AnimatedInterpolate from './src/animation/AnimatedInterpolate'
+import AnimatedFlatlist from './src/animation/example/AnimatedFlatlist'
 
 export default function App() {
   return (
@@ -31,7 +33,9 @@ export default function App() {
       {/* <AnimatedSquence/> */}
       {/* <AnimatedDecay/> */}
       {/* <TodoListAnimation/> */}
-      <ParalaxScrollAnimation/>
+      {/* <ParalaxScrollAnimation/> */}
+      {/* <AnimatedInterpolate/> */}
+      <AnimatedFlatlist/>
    </SafeAreaView>
   )
 };
